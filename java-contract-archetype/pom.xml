@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.hyperchain</groupId>
+    <artifactId>java-contract-archetype</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <properties>
+        <!--NOTE: user should fill this with canonical name of the contract main class-->
+        <main-class>cn.hyperchain.java_contract_archetype.SBank</main-class>
+        <hvm-sdk-version>1.0.2</hvm-sdk-version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.hyperchain</groupId>
+            <artifactId>hvm-sdk</artifactId>
+            <version>${hvm-sdk-version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Main-Class>${main-class}</Main-Class>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
